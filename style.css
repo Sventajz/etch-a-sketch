@@ -1,11 +1,38 @@
 body{
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
+  padding: 0;
+  margin: auto;
 }
 
+.title-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.main ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+ }
+
+.main li{
+ display: inline;
+ margin: auto;
+}
+
+button{
+  font-size: 1.5rem;
+}
 .grid-container{
   display: grid;
   height: 500px;

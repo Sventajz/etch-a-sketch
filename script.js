@@ -1,5 +1,9 @@
 console.log('hello')
 const gridContainer = document.querySelector('.grid-container');
+const slider = document.getElementById('myRange');
+const output = document.querySelector('#slider-output');
+output.innerHTML = "16x16";
+
 let defaulSize = 64;
 function randomIntFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -33,6 +37,22 @@ function changeColor(e){
 }
 
 gridSetup(defaulSize);
+
+slider.oninput = function (){
+  if (this.value == '1'){
+    output.innerHTML = "8x8";
+  }
+  else if (this.value == '2'){
+    output.innerHTML = "16x16";
+  }
+  else if (this.value == '3'){
+    output.innerHTML = "32x32";
+  }
+  else{
+    output.innerHTML = "64x64";
+  }
+  
+}
 
 
 

@@ -2,12 +2,20 @@ console.log('hello')
 const gridContainer = document.querySelector('.grid-container');
 const slider = document.getElementById('myRange');
 const output = document.querySelector('#slider-output');
+const clear = document.getElementById('clear')
 output.innerHTML = "16x16";
 
-let defaulSize = 64;
-function randomIntFromInterval(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
+
+
+let defaulSize = 16;
+
+// function clearGrid(e) {
+//   location.reload()
+// }
+clear.addEventListener('click',() => {
+  clear.classList.add('active')
+})
+
 let mouseDown = false
 document.body.onmousedown = () => (mouseDown = true)
 document.body.onmouseup = () => (mouseDown = false)
@@ -38,6 +46,9 @@ function changeColor(e){
 
 gridSetup(defaulSize);
 
+
+// slider value display
+// theres probably a better way to display values but this is good for now
 slider.oninput = function (){
   if (this.value == '1'){
     output.innerHTML = "8x8";

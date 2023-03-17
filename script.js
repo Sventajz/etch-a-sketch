@@ -8,13 +8,17 @@ output.innerHTML = "16x16";
 let defaultColor = "black";
 // sets the initial grid size to a 16x16 grid
 let gridSize = 16;
-console.log(defaultColor)
-console.log('default size is ', gridSize)
 
-
+// this sections checks if the mouse buttons are pressed or not
 let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
+
+// this function changes the default color string to a given statement
+function currentColor(e) {
+  defaultColor = e;
+}
+
 
 function gridSetup(size) {
   gridContainer.style.gridTemplateRows = `repeat(${size},1fr)`;
@@ -29,17 +33,13 @@ function gridSetup(size) {
     }
   }
 }
-
+gridSetup(gridSize);
 function clearGrid() {
   gridContainer.innerHTML = ' ';
   gridSetup(gridSize);
 }
 
 
-function currentColor(e) {
-  defaultColor = e;
-  console.log(defaultColor);
-}
 
 
 function changeGridSize(){
@@ -53,7 +53,7 @@ function changeGridSize(){
   } else {
     gridSize = "64";
   }
-  console.log('default size is ', gridSize)
+
   clearGrid();
 }
 
@@ -80,6 +80,7 @@ function changeColor(e) {
   const randomR = Math.floor(Math.random() * 256);
   const randomG = Math.floor(Math.random() * 256);
   const randomB = Math.floor(Math.random() * 256);
+  // these if statements check what string value is of the defaultColor variable
   if (defaultColor == "rainbow") {
     e.target.style.backgroundColor = `rgb(${randomR},${randomG},${randomB})`;
   }
@@ -89,7 +90,7 @@ function changeColor(e) {
   else e.target.style.backgroundColor = '#FFFFFF';
 }
 
-gridSetup(gridSize);
+
 
 // displays the slider values in the DOM
 // also each value calls the changeGridSize function for grid resizing
